@@ -1,0 +1,2 @@
+module Freshbooks::GetInvoicesHelper
+end
