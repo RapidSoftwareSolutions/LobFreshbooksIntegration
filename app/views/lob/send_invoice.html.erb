@@ -1,0 +1,149 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<title>Dave's Construction Invoice Letter Template</title>
+<style>
+
+  *, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  body {
+    width: 8.5in;
+    height: 11in;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: 'Open Sans';
+    font-weight: 400;
+  }
+
+  .page-content {
+    position: relative;
+    width: 8.125in;
+    height: 10.625in;
+    left: 0.1875in;
+    top: 0.1875in;
+  }
+
+  #return-address-window {
+    position: absolute;
+    left: .625in;
+    top: .5in;
+    width: 3.25in;
+    height: .875in;
+  }
+
+  #return-logo {
+    position: absolute;
+    left: .07in;
+    top: .02in;
+    width: 2.05in;
+    height: .3in;
+  }
+
+  #heading {
+    position: relative;
+    top: .6in;
+    left: 4.6in;
+    width: 3in;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .25in;
+    text-align: right;
+  }
+
+  #subheading {
+    padding-top: .2in;
+    font-size: .14in;
+    text-transform: none;
+  }
+
+  #footer {
+    font-size: .1in;
+    text-align: center;
+    margin-top: 2in;
+  }
+
+  #table {
+    display: table;
+    margin: auto;
+    margin-top: 2in;
+    width: 7.2in;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+  }
+
+  .row {
+    display: table-row;
+  }
+
+  .cell {
+    display: table-cell;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 10px;
+  }
+
+  .top {
+    font-weight: 700;
+    font-size: .135in;
+    background-color: lightgray;
+  }
+
+  .bottom {
+    font-size: .12in;
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+</style>
+</head>
+
+<body>
+  <!-- all text should be within page-content -->
+  <div class="page-content">
+    <div id="heading">
+      Dave's Construction
+      <div id="subheading">
+        Invoice #: <%= @params['invoice_number'] %><br>
+        Customer ID: <%= @params['customer_id'] %><br>
+        Date: <%= @params['create_date'] %><br>
+        Organization: <%= @params['organization'] %>
+      </div>
+    </div>
+    <div id="table">
+      <% @params['lines'].each_with_index do |line, idx| %>
+        <div class="row">
+          <span class="cell top"><%= line[1]['lineid'] %></span>
+          <span class="cell top"><%= line[1]['name'] %></span>
+          <span class="cell top"><%= line[1]['qty'] %></span>
+          <span class="cell top"><%= line[1]['unit_code.amount'] %></span>
+          <span class="cell top"><%= line[1]['amount']['amount'] %></span>
+        </div>
+      <% end %>
+    </div>
+
+    <div id="footer">
+      Your total payment is due in 30 days.<br>Please make checks payable to "Dave's Construction".<br><br>
+      If you have any questions about this invoice, please contact support@davesconstruction.com.
+    </div>
+  </div>
+  <div id="return-address-window">
+    <div id="return-logo">
+      <!-- your logo here! -->
+      <img src="https://s3-us-west-2.amazonaws.com/lob-assets/crafty-logo.png" style="height: 100%">
+    </div>
+  </div>
+</body>
+
+</html>

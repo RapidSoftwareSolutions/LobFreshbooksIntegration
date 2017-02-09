@@ -1,3 +1,48 @@
 // Place all the styles related to the Freshbooks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.invoice-index-item {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  height: 60px;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0px 2px 4px rgba(80, 76, 76, 0.5);
+  opacity: 0.9;
+  background: linear-gradient(90deg, #86a05c 50%, #55869e 50%);
+}
+
+.invoice-index-item:hover {
+  opacity: 1;
+}
+
+.invoice-attribute {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+}
+
+.invoice {
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.invoice-attribute-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 20%;
+}
+
+.lob-attribute-container {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

@@ -6,10 +6,12 @@ class FreshbooksController < ApplicationController
     ::RapidAPI.config(project: "LobFreshbooks", token: ENV['RAPID_API_APP_KEY'])
 
     root = ::RapidAPI.call('FreshbooksAPI', 'getInvoices', {
-    	'accessToken': ENV['FRESHBOOKS_ACCESS_TOKEN'],
-    	'accountId': ENV['FRESHBOOKS_ACCOUNT_ID']
+    	'accessToken': '#################################',
+    	'accountId': '####',
+      'include': 'lines'
     })
 
-    render json: JSON.pretty_generate(root)
+    render json: JSON.pretty_generate(root['payload']['response']['result']['invoices'])
   end
+
 end
