@@ -3,7 +3,7 @@ class LobController < ApplicationController
     require 'rapidapisdk'
 
     @params = params
-    ::RapidAPI.config(project: "LobFreshbooks", token: "#######################")
+    ::RapidAPI.config(project: "LobFreshbooks", token: "42a3880c-2d5b-4387-90cc-b2912109bdf5")
 
     Dir.chdir(File.dirname(__FILE__))
 
@@ -13,7 +13,7 @@ class LobController < ApplicationController
     result = renderer.result(binding)
 
     response = ::RapidAPI.call('Lob', 'createLetter', {
-    	'apiKey': '##################################',
+    	'apiKey': 'test_3f9226a73238e5e5fa4714f249fa8bd999f',
     	'letterTo': JSON.generate({
         name: params['name'],
         address_line1: params['address_line_1'],
